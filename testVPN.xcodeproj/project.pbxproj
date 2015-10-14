@@ -14,6 +14,7 @@
 		572FDDF71BCE54F8006FBADD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 572FDDF51BCE54F8006FBADD /* LaunchScreen.storyboard */; };
 		572FDE021BCE54F8006FBADD /* testVPNTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FDE011BCE54F8006FBADD /* testVPNTests.swift */; };
 		572FDE0D1BCE54F8006FBADD /* testVPNUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 572FDE0C1BCE54F8006FBADD /* testVPNUITests.swift */; };
+		574868211BCE734F00AEADBC /* NetworkExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 574868201BCE734F00AEADBC /* NetworkExtension.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		572FDE081BCE54F8006FBADD /* testVPNUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = testVPNUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		572FDE0C1BCE54F8006FBADD /* testVPNUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testVPNUITests.swift; sourceTree = "<group>"; };
 		572FDE0E1BCE54F8006FBADD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		574868201BCE734F00AEADBC /* NetworkExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NetworkExtension.framework; path = System/Library/Frameworks/NetworkExtension.framework; sourceTree = SDKROOT; };
+		574868221BCE734F00AEADBC /* testVPN.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = testVPN.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +57,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				574868211BCE734F00AEADBC /* NetworkExtension.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -77,6 +81,7 @@
 		572FDDE01BCE54F8006FBADD = {
 			isa = PBXGroup;
 			children = (
+				574868201BCE734F00AEADBC /* NetworkExtension.framework */,
 				572FDDEB1BCE54F8006FBADD /* testVPN */,
 				572FDE001BCE54F8006FBADD /* testVPNTests */,
 				572FDE0B1BCE54F8006FBADD /* testVPNUITests */,
@@ -97,6 +102,7 @@
 		572FDDEB1BCE54F8006FBADD /* testVPN */ = {
 			isa = PBXGroup;
 			children = (
+				574868221BCE734F00AEADBC /* testVPN.entitlements */,
 				572FDDEC1BCE54F8006FBADD /* AppDelegate.swift */,
 				572FDDEE1BCE54F8006FBADD /* ViewController.swift */,
 				572FDDF01BCE54F8006FBADD /* Main.storyboard */,
@@ -192,6 +198,12 @@
 				TargetAttributes = {
 					572FDDE81BCE54F8006FBADD = {
 						CreatedOnToolsVersion = 7.0.1;
+						DevelopmentTeam = 94TWQJ7GSF;
+						SystemCapabilities = {
+							com.apple.VPNLite = {
+								enabled = 1;
+							};
+						};
 					};
 					572FDDFC1BCE54F8006FBADD = {
 						CreatedOnToolsVersion = 7.0.1;
@@ -398,10 +410,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = testVPN/testVPN.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = testVPN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victor.testVPN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -409,10 +425,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = testVPN/testVPN.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = testVPN/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.victor.testVPN;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -483,6 +503,7 @@
 				572FDE131BCE54F8006FBADD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		572FDE141BCE54F8006FBADD /* Build configuration list for PBXNativeTarget "testVPNTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +512,7 @@
 				572FDE161BCE54F8006FBADD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		572FDE171BCE54F8006FBADD /* Build configuration list for PBXNativeTarget "testVPNUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +521,7 @@
 				572FDE191BCE54F8006FBADD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
